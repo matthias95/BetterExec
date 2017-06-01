@@ -1,7 +1,7 @@
 # BetterExec
 I created a custom  [OpenHab 2](https://github.com/openhab)-binding for executing shell commands because the default exec-binding did not fit my needs. \
-BetterExec is desingned to work with a switch-item. 
-It is possible to define different commands, depeding if the switch is turned on or off. Commands are executed sequentielly, one at a time within a FIFO queue. Currently there is a hard-coded 5 second timeout after which the command terminated, so the next command in the queue can be executed. 
+BetterExec is designed to work with a switch-item. 
+It is possible to define different commands, depending if the switch is turned on or off. Commands are executed sequentielly, one at a time within a FIFO queue. Currently there is a hard-coded 5 second timeout after which the command terminated, so the next command in the queue can be executed. 
 
 ## Usage
 Example thing definition:\
