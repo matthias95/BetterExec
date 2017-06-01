@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<thing:thing-descriptions bindingId="betterexec"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:thing="http://eclipse.org/smarthome/schemas/thing-description/v1.0.0"
+        xsi:schemaLocation="http://eclipse.org/smarthome/schemas/thing-description/v1.0.0 http://eclipse.org/smarthome/schemas/thing-description-1.0.0.xsd">
+
+    <!-- Sample Thing Type -->
+    <thing-type id="command">
+        <label>Execute Command Binding</label>
+        <description>Execute command for Switch ON and Switch OFF</description>
+        <channels>
+            <channel id="execute" typeId="execute"/>
+        </channels>
+        <config-description>
+            <parameter name="oncommand" type="text" required="true">
+                <label>On Command</label>
+                <description>Command executed when switch is turned on</description>
+            </parameter>
+            <parameter name="offcommand" type="text" required="true">
+                <label>Off Command</label>
+                <description>Command executed when switch is turned off</description>
+            </parameter>
+        </config-description>
+    </thing-type>
+
+    <!-- Sample Channel Type -->
+    <channel-type id="execute">
+        <item-type>Switch</item-type>
+        <label>Switch Channel</label>
+        <description>Execute command</description>
+    </channel-type>
+
+</thing:thing-descriptions>
