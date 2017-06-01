@@ -4,10 +4,10 @@ BetterExec is desingned to work with a switch-item.
 It is possible to define different commands, depeding if the switch is turned on or off. 
 
 ## Usage
-Example thing definition:
+Example thing definition:\
 `betterexec:command:rcsocket1 "rcsocket1" [oncommand="switchrcsocket 00000 0 1", offcommand="switchrcsocket 00000 0 0"]`
 
-Example item definition:
+Example item definition:\
 `Switch RCSocketSwitch1          "Socket 1"           {channel="betterexec:command:rcsocket1:execute"}`
 
 
