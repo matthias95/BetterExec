@@ -5,9 +5,9 @@ It is possible to define different commands, depeding if the switch is turned on
 
 ## Usage
 Example thing definition:
-betterexec:command:rcsocket1 "rcsocket1" [oncommand="switchrcsocket 00000 0 1", offcommand="switchrcsocket 00000 0 0"]
+`betterexec:command:rcsocket1 "rcsocket1" [oncommand="switchrcsocket 00000 0 1", offcommand="switchrcsocket 00000 0 0"]`
 
 Example item definition:
-Switch RCSocketSwitch1          "Socket 1"           {channel="betterexec:command:rcsocket1:execute"}
+`Switch RCSocketSwitch1          "Socket 1"           {channel="betterexec:command:rcsocket1:execute"}`
 
 
