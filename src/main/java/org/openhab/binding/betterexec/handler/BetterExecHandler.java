@@ -1,18 +1,25 @@
 /**
- * Copyright (c) 2014-2016 by the respective copyright holders.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
+ * Copyright (c) 2014,2018 by the respective copyright holders.
+ *
+ * See the NOTICE file(s) distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Eclipse Public License 2.0 which is available at
+ * http://www.eclipse.org/legal/epl-2.0
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.openhab.binding.betterexec.handler;
 
 import static org.openhab.binding.betterexec.BetterExecBindingConstants.*;
 
+import java.math.BigDecimal;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
+import org.eclipse.jdt.annotation.NonNullByDefault;
 import org.eclipse.smarthome.core.library.types.OnOffType;
 import org.eclipse.smarthome.core.thing.ChannelUID;
 import org.eclipse.smarthome.core.thing.Thing;
@@ -28,12 +35,13 @@ import org.slf4j.LoggerFactory;
  *
  * @author Matthias Bernard - Initial contribution
  */
+@NonNullByDefault
 public class BetterExecHandler extends BaseThingHandler {
 
     private Logger logger = LoggerFactory.getLogger(BetterExecHandler.class);
 
     private static ExecutorService execQueue = Executors.newSingleThreadExecutor();
-    private static Runtime runtime = Runtime.getRuntime();
+    private Runtime runtime = Runtime.getRuntime();
 
     public BetterExecHandler(Thing thing) {
         super(thing);
@@ -43,8 +51,8 @@ public class BetterExecHandler extends BaseThingHandler {
     public void handleCommand(ChannelUID channelUID, Command command) {
         final String oncommand = (String) this.getConfig().get(ONCOMMAND);
         final String offcommand = (String) this.getConfig().get(OFFCOMMAND);
+        final long timeout = ((BigDecimal) this.getConfig().get(TIMEOUT)).longValue();
         final String commandStr;
-        final int timeout = 5;
         if (channelUID.getId().equals(EXECUTE)) {
             if (command instanceof OnOffType) {
                 logger.debug("------> " + command.toString() + "<--------");
